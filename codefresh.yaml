@@ -1,0 +1,14 @@
+version: '1.0'
+steps:
+  BuildingDockerImage:
+    title: Building Docker Image
+    type: build
+    image_name: bengineer/country-fried-coders
+    working_directory: ./
+    dockerfile: Dockerfile
+  PushingToDockerRegistry:
+    title: Pushing to Docker Registry
+    type: push
+    candidate: '${{BuildingDockerImage}}'
+    tag: '${{CF_BRANCH}}'
+    registry: dockerhub
