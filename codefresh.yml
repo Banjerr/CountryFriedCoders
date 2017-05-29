@@ -4,7 +4,7 @@ steps:
     title: Building Docker Image
     type: build
     image_name: bengineer/country-fried-coders
-    working_directory: ./
+    working_directory: ./app
     dockerfile: ./app/Dockerfile
   PushingToDockerRegistry:
     title: Pushing to Docker Registry
