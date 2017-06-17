@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './footer.css';
 
 class Footer extends Component {
   render() {
@@ -6,7 +7,10 @@ class Footer extends Component {
       <footer>
         <ul>
           <li>
-            nav item
+            footer nav item
+          </li>
+          <li>
+            another footer nav item
           </li>
         </ul>
       </footer>

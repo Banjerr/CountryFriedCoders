@@ -1,0 +1,13 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 8%;
+}
+
+.site-dock, .site-dock div {
+  background-color: rgba(34, 34, 34, 0.80);
+  color: #fff;
+}
