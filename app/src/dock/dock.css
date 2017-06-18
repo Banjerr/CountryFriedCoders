@@ -7,7 +7,23 @@
   height: 8%;
 }
 
+.site-dock .pull-right {
+  float: right;
+  cursor: pointer;
+}
+
 .site-dock, .site-dock div {
-  background-color: rgba(34, 34, 34, 0.80);
+  background-color: #222;
   color: #fff;
+}
+
+.site-dock ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-dock ul li {
+  display: inline-block;
+  cursor: pointer;
 }
