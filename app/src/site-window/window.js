@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import Rnd from 'react-rnd';
 import { TitleBar, Toolbar, Text } from 'react-desktop/macOs';
+import About from '../about/about.js';
+import Settings from '../settings/settings.js';
+import Music from '../music/music.js';
+import Code from '../code/code.js';
+import Blog from '../blog/blog.js';
 import './window.css';
+
+let AppContent = [];
+AppContent['about'] = <About />;
+AppContent['settings'] = <Settings />;
+AppContent['about'] = <About />;
+AppContent['settings'] = <Settings />;
+AppContent['code'] = <Code />;
+AppContent['music'] = <Music />;
+AppContent['blog'] = <Blog />;
+
 
 class SiteWindow extends Component {
   constructor(props) {
@@ -30,12 +45,20 @@ class SiteWindow extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
+  getContent() {
+    let currentContent = this.props.content;
+    return AppContent[currentContent];
+  }
+
   render() {
     const WindowContent = () => (
       <div>
         content is {this.props.content}
+        {this.getContent()}
       </div>
     );
+
+    const AppTitle = this.props.content;
 
     return (
       <div>
@@ -49,7 +72,7 @@ class SiteWindow extends Component {
           }}
         >
           <div className="content">
-            <TitleBar controls inset isFullscreen={this.state.isFullscreen}
+            <TitleBar title={AppTitle} controls inset isFullscreen={this.state.isFullscreen}
               onCloseClick={() => this.props.handleState()}
               onMaximizeClick={() => console.log('max')}
               onMinimizeClick={() => this.props.handleState()}
