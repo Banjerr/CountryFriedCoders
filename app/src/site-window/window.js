@@ -11,7 +11,7 @@ class SiteWindow extends Component {
       isFullscreen: false,
       appVisible: true,
       width: '0',
-      heigt: '0'
+      height: '0',
     };
 
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -30,13 +30,13 @@ class SiteWindow extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
-  _onClick() {
-    this.setState({
-      appVisible: !this.state.appVisible
-    });
-  }
-
   render() {
+    const WindowContent = () => (
+      <div>
+        content is {this.props.content}
+      </div>
+    );
+
     return (
       <div>
       { this.state.appVisible ?
@@ -57,7 +57,7 @@ class SiteWindow extends Component {
               <Toolbar height="43" horizontalAlignment="center"/>
             </TitleBar>
 
-            <h2>Check me out</h2>
+            <WindowContent />
           </div>
         </Rnd> : null }
 

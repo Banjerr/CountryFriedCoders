@@ -18,7 +18,8 @@ class SiteDock extends Component {
 
     this.state = {
       isHovering: false,
-      appVisible: false
+      appVisible: false,
+      content: null
     };
 
     this.onHoverChanged = this.onHoverChanged.bind(this);
@@ -30,9 +31,10 @@ class SiteDock extends Component {
     });
   }
 
-  _onClick() {
+  handleClick(content) {
     this.setState({
-      appVisible: !this.state.appVisible
+      appVisible: !this.state.appVisible,
+      content: content || null
     });
   }
 
@@ -49,9 +51,11 @@ class SiteDock extends Component {
       </div>
     );
 
+    let contentState = this.state.content;
+
     return (
       <div>
-        { this.state.appVisible ? <SiteWindow handleState={this.handleState.bind(this)} /> : null}
+        { this.state.appVisible ? <SiteWindow content={contentState} handleState={this.handleState.bind(this)} /> : null}
 
         <ReactHoverObserver className="site-dock" hoverDelayInMs={300}
         hoverOffDelayInMs={200} {...{onHoverChanged: this.onHoverChanged}}>
@@ -60,16 +64,19 @@ class SiteDock extends Component {
             <FontIcon onClick={() => this.setState({ isHovering: !this.state.isHovering })} className="material-icons code pull-right" style={iconStyles}>close</FontIcon>
 
             <ul>
-              <li onClick={() => this.setState({ appVisible: !this.state.appVisible })}>
+              <li onClick={() => this.handleClick('about')}>
                 <FontIcon className="material-icons about" style={iconStyles}>mood</FontIcon>
               </li>
-              <li onClick={() => this.setState({ appVisible: !this.state.appVisible })}>
+              <li onClick={() => this.handleClick('settings')}>
+                <FontIcon className="material-icons settings" style={iconStyles}>settings</FontIcon>
+              </li>
+              <li onClick={() => this.handleClick('code')}>
                 <FontIcon className="material-icons code" style={iconStyles}>code</FontIcon>
               </li>
-              <li onClick={() => this.setState({ appVisible: !this.state.appVisible })}>
+              <li onClick={() => this.handleClick('music')}>
                 <FontIcon className="material-icons music" style={iconStyles}>music_note</FontIcon>
               </li>
-              <li onClick={() => this.setState({ appVisible: !this.state.appVisible })}>
+              <li onClick={() => this.handleClick('blog')}>
                 <FontIcon className="material-icons blog" style={iconStyles}>book</FontIcon>
               </li>
             </ul>
