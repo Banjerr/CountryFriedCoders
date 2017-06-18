@@ -2,32 +2,34 @@ import React, { Component } from 'react';
 import Rnd from 'react-rnd';
 import './window.css';
 
-const AppWindow = () => (
-  <div className="content">
-    <h2>Check me out</h2>
-  </div>
-);
-
 const Underlay = () => (
   <div className="underlay"></div>
+);
+
+const AppWindow = () => (
+  <Rnd
+    default={{
+      x: 0,
+      y: 0,
+      width: 320,
+      height: 200,
+    }}
+  >
+    <Underlay />
+    <div className="content">
+      <h2>Check me out</h2>
+    </div>
+  </Rnd>
 );
 
 class SiteWindow extends Component {
   render() {
     return (
-      <Rnd
-        default={{
-          x: 0,
-          y: 0,
-          width: 320,
-          height: 200,
-        }}
-      >
-        <Underlay />
+      <div>
         <AppWindow />
-      </Rnd>
+      </div>
     );
-  }
+  }  
 }
 
 export default SiteWindow;
