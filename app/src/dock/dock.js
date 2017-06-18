@@ -17,7 +17,7 @@ class SiteDock extends Component {
     super(props);
 
     this.state = {
-      isHovering: true,
+      isHovering: false,
       appVisible: false
     };
 
