@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Rnd from 'react-rnd';
-import { TitleBar, Toolbar, Text } from 'react-desktop/macOs';
+import { TitleBar, Toolbar } from 'react-desktop/macOs';
 import About from '../about/about.js';
 import Settings from '../settings/settings.js';
 import Music from '../music/music.js';
@@ -65,10 +65,10 @@ class SiteWindow extends Component {
       { this.state.appVisible ?
         <Rnd
           default={{
-            x: 0,
-            y: 0,
-            width: this.state.isFullscreen ? this.state.width : 320,
-            height: this.state.isFullscreen ? (this.state.height - 100) : 200,
+            x: -300,
+            y: -160,
+            width: this.state.isFullscreen ? this.state.width : 600,
+            height: this.state.isFullscreen ? (this.state.height - 100) : 400,
           }}
         >
           <div className="content">

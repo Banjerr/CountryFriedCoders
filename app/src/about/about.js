@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import Paper from 'material-ui/Paper';
 import { SegmentedControl, SegmentedControlItem, Text } from 'react-desktop/macOs';
 import './about.css';
+
+const styles = {
+  background: '#fff'
+};
 
 class About extends Component {
   constructor() {
@@ -18,9 +23,9 @@ class About extends Component {
 
   renderItems() {
     return [
-      this.renderItem(1, 'Tab 1', <Text>Content 1</Text>),
-      this.renderItem(2, 'Tab 2', <Text>Content 2</Text>),
-      this.renderItem(3, 'Tab 3', <Text>Content 3</Text>)
+      this.renderItem(1, 'Social Media', <Paper styles={styles} zDepth={2} className="paper"><Text>Content 1</Text></Paper>),
+      this.renderItem(2, 'About', <Paper styles={styles} zDepth={2} className="paper"><Text>Content 2</Text></Paper>),
+      this.renderItem(3, 'Analytics', <Paper styles={styles} zDepth={2} className="paper"><Text>Content 3</Text></Paper>)
     ];
   }
 

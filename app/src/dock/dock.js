@@ -6,8 +6,8 @@ import SiteWindow from '../site-window/window.js';
 import './dock.css';
 
 const iconStyles = {
-  marginRight: 6,
-  marginLeft: 6,
+  marginRight: 12,
+  marginLeft: 12,
   fontSize: 70,
   cursor: 'pointer'
 };
@@ -61,8 +61,6 @@ class SiteDock extends Component {
         hoverOffDelayInMs={200} {...{onHoverChanged: this.onHoverChanged}}>
           <HoverBar />
           <Dock dimMode="transparent" position='bottom' isVisible={this.state.isHovering}>
-            <FontIcon onClick={() => this.setState({ isHovering: !this.state.isHovering })} className="material-icons code pull-right" style={iconStyles}>close</FontIcon>
-
             <ul>
               <li onClick={() => this.handleClick('about')}>
                 <FontIcon className="material-icons about" style={iconStyles}>mood</FontIcon>
