@@ -36,6 +36,12 @@ class SiteDock extends Component {
     });
   }
 
+  handleState() {
+    this.setState({
+      appVisible: !this.state.appVisible
+    });
+  }
+
   render() {
     const HoverBar = ({ isHovering = false }) => (
       <div className="footer">
@@ -45,7 +51,7 @@ class SiteDock extends Component {
 
     return (
       <div>
-        { this.state.appVisible ? <SiteWindow /> : null}
+        { this.state.appVisible ? <SiteWindow handleState={this.handleState.bind(this)} /> : null}
 
         <ReactHoverObserver className="site-dock" hoverDelayInMs={300}
         hoverOffDelayInMs={200} {...{onHoverChanged: this.onHoverChanged}}>

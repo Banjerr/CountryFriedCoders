@@ -9,8 +9,25 @@ class SiteWindow extends Component {
 
     this.state = {
       isFullscreen: false,
-      appVisible: true
+      appVisible: true,
+      width: '0',
+      heigt: '0'
     };
+
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   _onClick() {
@@ -27,15 +44,16 @@ class SiteWindow extends Component {
           default={{
             x: 0,
             y: 0,
-            width: 320,
-            height: 200,
+            width: this.state.isFullscreen ? this.state.width : 320,
+            height: this.state.isFullscreen ? (this.state.height - 100) : 200,
           }}
         >
           <div className="content">
             <TitleBar controls inset isFullscreen={this.state.isFullscreen}
-              onCloseClick={() => this.setState({ appVisible: !this.state.appVisible })}
-              onMinimizeClick={() => this.setState({ appVisible: !this.state.appVisible })}
-              onMaximizeClick={() => console.log('Mazimize window')}>
+              onCloseClick={() => this.props.handleState()}
+              onMaximizeClick={() => console.log('max')}
+              onMinimizeClick={() => this.props.handleState()}
+              onResizeClick={() => this.setState({ isFullscreen: !this.state.isFullscreen })}>
               <Toolbar height="43" horizontalAlignment="center"/>
             </TitleBar>
 
@@ -46,6 +64,10 @@ class SiteWindow extends Component {
       </div>
     );
   }
+}
+
+SiteWindow.propTypes = {
+  handleState: React.PropTypes.func
 }
 
 export default SiteWindow;
