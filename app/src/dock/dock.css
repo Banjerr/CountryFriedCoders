@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  height: 8%;
+  height: 10%;
 }
 
 .site-dock .pull-right {
@@ -26,4 +26,14 @@
 .site-dock ul li {
   display: inline-block;
   cursor: pointer;
+  vertical-align: middle;
+  margin: 4% 0;
+}
+
+.site-dock ul li span {
+  -webkit-transform: translateZ(0px);
+}
+
+.site-dock ul li:hover span {
+  font-size: 120px !important;
 }

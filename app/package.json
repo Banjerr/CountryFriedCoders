@@ -4,11 +4,15 @@
   "private": true,
   "dependencies": {
     "material-ui": "^0.18.3",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-desktop": "^0.3.1",
     "react-dock": "^0.2.4",
     "react-dom": "^15.5.4",
     "react-hover-observer": "^2.0.1",
+    "react-motion-menu": "^0.4.4",
     "react-rnd": "^5.0.8",
+    "react-smart-time-ago": "^1.0.5",
     "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
