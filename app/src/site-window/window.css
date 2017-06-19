@@ -6,6 +6,8 @@
   border-radius: 6px;
   cursor: initial;
   transition: all .2 ease-out;
+  /*overflow-y: scroll;
+  overflow-x: hidden;*/
 }
 
 .react-draggable:after {
@@ -30,4 +32,19 @@
 .react-draggable .content {
   position: relative;
   z-index: 900;
+}
+
+.react-draggable .content .paper {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.socialList {
+  list-style: none;
+}
+
+.socialList li {
+  display: inline-block;
+  padding: 0 2%;
+  font-size: 36px;
 }

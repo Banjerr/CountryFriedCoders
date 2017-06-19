@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -19,7 +19,7 @@ class App extends Component {
             <span role="img" aria-label="frying-pan-emoji" className="App-logo">🍳</span>
             <h2>Country Fried Coders</h2>
           </div>
-          
+
           <SiteDock />
         </div>
       </MuiThemeProvider>

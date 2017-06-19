@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rnd from 'react-rnd';
 import { TitleBar, Toolbar } from 'react-desktop/macOs';
+import PropTypes from 'prop-types'
 import About from '../about/about.js';
 import Settings from '../settings/settings.js';
 import Music from '../music/music.js';
@@ -52,8 +53,7 @@ class SiteWindow extends Component {
 
   render() {
     const WindowContent = () => (
-      <div>
-        content is {this.props.content}
+      <div className="contentPane">
         {this.getContent()}
       </div>
     );
@@ -61,14 +61,14 @@ class SiteWindow extends Component {
     const AppTitle = this.props.content;
 
     return (
-      <div>
+      <div className="appWindow">
       { this.state.appVisible ?
         <Rnd
           default={{
-            x: -300,
+            x: -400,
             y: -160,
-            width: this.state.isFullscreen ? this.state.width : 600,
-            height: this.state.isFullscreen ? (this.state.height - 100) : 400,
+            width: this.state.isFullscreen ? this.state.width : 960,
+            height: this.state.isFullscreen ? (this.state.height - 120) : 600,
           }}
         >
           <div className="content">
@@ -90,7 +90,7 @@ class SiteWindow extends Component {
 }
 
 SiteWindow.propTypes = {
-  handleState: React.PropTypes.func
+  handleState: PropTypes.func
 }
 
 export default SiteWindow;
