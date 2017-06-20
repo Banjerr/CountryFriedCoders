@@ -48,3 +48,25 @@
   padding: 0 2%;
   font-size: 36px;
 }
+
+.contentPane .button a {
+  color: #fff;
+  font-size: 55px;
+  transition: all .2s ease-in;
+}
+
+.contentPane .button a:hover {
+  color: lime;
+  text-shadow: 1px 1px #fff;
+}
+
+.contentPane .avatar-button img {
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .2s ease-out;
+}
+
+.contentPane .avatar-button img:hover {
+  border-radius: none;
+  box-shadow: 0 0 12px #fff;
+}
