@@ -5,7 +5,7 @@ class Code extends Component {
   render() {
     return (
       <div>
-        Code Stuff
+        <h1>Code: Coming soon!</h1>
       </div>
     );
   }

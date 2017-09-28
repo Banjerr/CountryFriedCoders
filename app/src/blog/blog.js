@@ -4,7 +4,9 @@ import './blog.css';
 class Blog extends Component {
   render() {
     return (
-      <h2>Blog Stuff</h2>
+      <div>
+        <h1>Blog: Coming soon</h1>
+      </div>
     );
   }
 }
