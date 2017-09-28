@@ -53,7 +53,7 @@ const AboutContent = () => (
 class About extends Component {
   constructor() {
     super();
-    this.state = { selected: 1 }
+    this.state = { selected: 2 }
   }
 
   render() {
@@ -66,8 +66,8 @@ class About extends Component {
 
   renderItems() {
     return [
-      this.renderItem(1, 'Social Media', <Paper zDepth={2} className="paper"><SocialMedia /></Paper>),
       this.renderItem(2, 'About', <Paper zDepth={2} className="paper"><AboutContent /></Paper>),
+      this.renderItem(1, 'Social Media', <Paper zDepth={2} className="paper"><SocialMedia /></Paper>),
       this.renderItem(3, 'Analytics', <Paper zDepth={2} className="paper"><figure><embed src="https://wakatime.com/share/@bengineer/c27a51aa-ae1a-43fb-b13c-ef23cc8f372b.svg"></embed></figure></Paper>)
     ];
   }

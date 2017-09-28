@@ -5,7 +5,7 @@ class Settings extends Component {
   render() {
     return (
       <div>
-        Settings stuff
+        <h1>Settings: Coming soon!</h1>
       </div>
     );
   }
