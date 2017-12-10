@@ -13,7 +13,8 @@
     "react-motion-menu": "^0.4.4",
     "react-rnd": "^5.0.8",
     "react-smart-time-ago": "^1.0.5",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "terminal-in-react": "^3.5.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

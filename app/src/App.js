@@ -1,28 +1,60 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-// import Header from './header/header.js';
-// import Footer from './footer/footer.js';
-import SiteDock from './dock/dock.js';
-
+import Terminal from 'terminal-in-react';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './App.css';
 
 class App extends Component {
+  listCommands = () => `"open-github" ================== opens up GitHub
+"open-reddit" ================== opens up Reddit`;
+
+aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, professional web dev {PHP, JS:{Angular.js, ES6, Node, React}, MySQL, Mongo, PostgreSQL, RethinkDB}`;
+
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div className="App">
-          <div className="App-header">
-            <span role="img" aria-label="frying-pan-emoji" className="App-logo">🍳</span>
-            <h2>Country Fried Coders</h2>
-          </div>
-
-          <SiteDock />
-        </div>
-      </MuiThemeProvider>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh"
+        }}
+      >
+        <Terminal
+          color='green'
+          backgroundColor='#222'
+          barColor='#222'
+          allowTabs={false}
+          style={{ fontWeight: "bold", fontSize: "1em" }}
+          commands={{
+            'open-github': () => window.open('https://github.com/Banjerr', '_blank'),
+            'open-reddit': () => window.open('https://www.reddit.com/user/banjerr/', '_blank'),
+            'open-facebook': () => window.open('https://www.facebook.com/benjamminredden', '_blank'),
+            'open-twitter': () => window.open('https://twitter.com/_bengineer_', '_blank'),
+            'open-instagram': () => window.open('https://www.instagram.com/banjerr/', '_blank'),
+            'about-bengineer': this.aboutMe,
+            'ls-commands': this.listCommands
+          }}
+          descriptions={{
+            'open-github': 'opens my GitHub profile',
+            'open-reddit': 'opens my Reddit profile',
+            'open-facebook': 'opens my FaceBook profile',
+            'open-twitter': 'opens my Twitter profile',
+            'open-instagram': 'opens my InstaGram profile',
+            'about-bengineer': 'displays info about Benjamin Redden',
+            'ls-commands': 'displays all custom commands'
+          }}
+          msg="
+ _____             _              _____     _       _    _____       _
+|     |___ _ _ ___| |_ ___ _ _   |   __|___|_|___ _| |  |     |___ _| |___ ___ ___
+|   --| . | | |   |  _|  _| | |  |   __|  _| | -_| . |  |   --| . | . | -_|  _|_ -|
+|_____|___|___|_|_|_| |_| |_  |  |__|  |_| |_|___|___|  |_____|___|___|___|_| |___|
+<=========================|___|===================================================>
+----------------------------------------------------------------------------------
+======================= Type 'ls-commands' to get started ========================"
+        />
+      </div>
     );
   }
 }
