@@ -6,10 +6,9 @@ import Terminal from 'terminal-in-react';
 import './App.css';
 
 class App extends Component {
-  listCommands = () => `"open-github" ================== opens up GitHub
-"open-reddit" ================== opens up Reddit`;
-
 aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, professional web dev {PHP, JS:{Angular.js, ES6, Node, React}, MySQL, Mongo, PostgreSQL, RethinkDB}`;
+
+contactMe = () => '<a href="mailto:admin@countryfriedcoders.me">admin@countryfriedcoders.me</a>'
 
   render() {
     return (
@@ -33,8 +32,8 @@ aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, profe
             'open-facebook': () => window.open('https://www.facebook.com/benjamminredden', '_blank'),
             'open-twitter': () => window.open('https://twitter.com/_bengineer_', '_blank'),
             'open-instagram': () => window.open('https://www.instagram.com/banjerr/', '_blank'),
+            'contact-me': () => window.open('mailto:admin@countryfriedcoders.me', '_self'),
             'about-bengineer': this.aboutMe,
-            'ls-commands': this.listCommands
           }}
           descriptions={{
             'open-github': 'opens my GitHub profile',
@@ -43,7 +42,7 @@ aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, profe
             'open-twitter': 'opens my Twitter profile',
             'open-instagram': 'opens my InstaGram profile',
             'about-bengineer': 'displays info about Benjamin Redden',
-            'ls-commands': 'displays all custom commands'
+            'contact-me': 'opens up an email to me'
           }}
           msg="
  _____             _              _____     _       _    _____       _
@@ -52,7 +51,8 @@ aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, profe
 |_____|___|___|_|_|_| |_| |_  |  |__|  |_| |_|___|___|  |_____|___|___|___|_| |___|
 <=========================|___|===================================================>
 ----------------------------------------------------------------------------------
-======================= Type 'ls-commands' to get started ========================"
+======================== Type 'help' to get started ==============================
+=-=-=-=-=-=-=-=-=- (and yes, tab for auto-complete works) -=-=-=-=-=-=-=-=-=-=-=-="
         />
       </div>
     );
