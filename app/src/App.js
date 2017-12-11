@@ -6,9 +6,31 @@ import Terminal from 'terminal-in-react';
 import './App.css';
 
 class App extends Component {
-aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, professional web dev {PHP, JS:{Angular.js, ES6, Node, React}, MySQL, Mongo, PostgreSQL, RethinkDB}`;
+  aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, professional web dev {PHP, JS:{Angular.js, ES6, Node, React}, MySQL, Mongo, PostgreSQL, RethinkDB}`;
 
-contactMe = () => '<a href="mailto:admin@countryfriedcoders.me">admin@countryfriedcoders.me</a>'
+  contactMe = function() {
+    window.open('mailto:admin@countryfriedcoders.me', '_self');
+  };
+
+  openInsta = function() {
+    window.open('https://www.instagram.com/banjerr/', '_blank');
+  };
+
+  openTwitter = function() {
+    window.open('https://twitter.com/_bengineer_', '_blank');
+  }
+
+  openFacebook = function() {
+    window.open('https://www.facebook.com/benjamminredden', '_blank');
+  }
+
+  openReddit = function() {
+    window.open('https://www.reddit.com/user/banjerr/', '_blank');
+  }
+
+  openGithub = function() {
+    window.open('https://github.com/Banjerr', '_blank');
+  }
 
   render() {
     return (
@@ -27,12 +49,12 @@ contactMe = () => '<a href="mailto:admin@countryfriedcoders.me">admin@countryfri
           allowTabs={false}
           style={{ fontWeight: "bold", fontSize: "1em" }}
           commands={{
-            'open-github': () => window.open('https://github.com/Banjerr', '_blank'),
-            'open-reddit': () => window.open('https://www.reddit.com/user/banjerr/', '_blank'),
-            'open-facebook': () => window.open('https://www.facebook.com/benjamminredden', '_blank'),
-            'open-twitter': () => window.open('https://twitter.com/_bengineer_', '_blank'),
-            'open-instagram': () => window.open('https://www.instagram.com/banjerr/', '_blank'),
-            'contact-me': () => window.open('mailto:admin@countryfriedcoders.me', '_self'),
+            'open-github': this.openGithub,
+            'open-reddit': this.openReddit,
+            'open-facebook': this.openFacebook,
+            'open-twitter': this.openTwitter,
+            'open-instagram': this.openInsta,
+            'contact-me': this.contactMe,
             'about-bengineer': this.aboutMe,
           }}
           descriptions={{
