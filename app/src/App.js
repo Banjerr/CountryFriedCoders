@@ -32,6 +32,8 @@ class App extends Component {
     window.open('https://github.com/Banjerr', '_blank');
   }
 
+  toggleTerminal = () => console.log('closing');
+
   render() {
     return (
       <div
@@ -48,6 +50,11 @@ class App extends Component {
           barColor='#222'
           allowTabs={false}
           style={{ fontWeight: "bold", fontSize: "1em" }}
+          actionHandlers={{
+            handleClose: () => {
+              this.toggleTerminal();
+            }
+          }}
           commands={{
             'open-github': this.openGithub,
             'open-reddit': this.openReddit,
