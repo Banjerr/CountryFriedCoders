@@ -6,6 +6,14 @@ import Terminal from 'terminal-in-react';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      terminalOpen: true
+    }
+  };
+
   aboutMe = () => `Father, old-time music enthusiast, amateur banjo builder, professional web dev {PHP, JS:{Angular.js, ES6, Node, React}, MySQL, Mongo, PostgreSQL, RethinkDB}`;
 
   contactMe = function() {
@@ -32,7 +40,7 @@ class App extends Component {
     window.open('https://github.com/Banjerr', '_blank');
   }
 
-  toggleTerminal = () => console.log('closing');
+  toggleTerminal = () => this.setState({ terminalOpen: !this.state.terminalOpen});
 
   render() {
     return (
@@ -44,6 +52,7 @@ class App extends Component {
           height: "100vh"
         }}
       >
+        { this.state.terminalOpen ? (
         <Terminal
           color='green'
           backgroundColor='#222'
@@ -83,6 +92,11 @@ class App extends Component {
 ======================== Type 'help' to get started ==============================
 =-=-=-=-=-=-=-=-=- (and yes, tab for auto-complete works) -=-=-=-=-=-=-=-=-=-=-=-="
         />
+      )
+        : (
+          <h2>Sad day</h2>
+        )
+        }
       </div>
     );
   }
