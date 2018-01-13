@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,Fira+Mono');
 
 .App {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Fira Mono', sans-serif;
   background: #222;
   height: 100vh;
   display: flex;
@@ -50,8 +50,8 @@
 .terminal-container-wrapper {
   height: 100%;
   -webkit-animation: fadeIn 0.18s ease-in;
-          animation: fadeIn 0.18s ease-in;
-        }
+  animation: fadeIn 0.18s ease-in;
+}
 
 :focus {
   outline: none !important;
