@@ -148,7 +148,7 @@ class App extends Component {
               <li className={'hvr-outline-out'} onClick={() => this.openLink('reddit')}><i className={'fa fa-reddit'}></i></li>
               <li className={'hvr-outline-out'} onClick={() => this.openLink('facebook')}><i className={'fa fa-facebook'}></i></li>
               <li className={'hvr-outline-out'} onClick={() => this.openLink('twitter')}><i className={'fa fa-twitter'}></i></li>
-              <li className={'hvr-outline-out'} onClick={() => this.contactMe}><i className={'fa fa-envelope'}></i></li>              
+              <li className={'hvr-outline-out'} onClick={() => this.contactMe()}><i className={'fa fa-envelope'}></i></li>              
             </ul>
             <h4>This site has been brought to you by...</h4>
             <ul className={'tech-list'}>
