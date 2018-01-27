@@ -4,10 +4,12 @@ RUN mkdir -p /home/app && mkdir -p /home/data/db
 WORKDIR /home/app
 
 COPY package.json /home/app/
-RUN npm install && npm cache clean
+RUN npm install && npm cache clean && npm install -g serve
 
 COPY . /home/app
 
-EXPOSE 3000
+RUN npm run build
 
-CMD [ "npm", "start" ]
+EXPOSE 5000
+
+CMD [ "npm", "run", "serve" ]
