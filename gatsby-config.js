@@ -1,3 +1,11 @@
+const dotenv = require("dotenv");
+
+if (process.env.ENVIRONMENT !== "production") {
+  dotenv.config();
+}
+
+const { CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_SPACE_ID } = process.env;
+
 module.exports = {
   siteMetadata: {
     title: `Country Fried Coders`,
@@ -25,6 +33,15 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon.ico`,
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: CONTENTFUL_SPACE_ID,
+        accessToken: CONTENTFUL_ACCESS_TOKEN,
+        host: `cdn.contentful.com`,
+        downloadLocal: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
