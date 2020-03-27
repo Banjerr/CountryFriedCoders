@@ -3,9 +3,6 @@ import React, { Component } from "react"
 import Terminal from 'terminal-in-react';
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import "../lib/console-style";
-
-import DevIcon from "devicon-react-svg"
 
 import { faEnvelope, faTerminal } from "@fortawesome/free-solid-svg-icons"
 import { fab } from "@fortawesome/free-brands-svg-icons"
@@ -23,19 +20,6 @@ class IndexPage extends Component {
       terminalOpen: true,
     }
   }
-
-  // componentDidMount() {
-  //   console.style(
-  //     '<css="font-size:70px;color:#fff;text-shadow:0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);">country-fried-coders</css>'
-  //   )
-  //   console.log(
-  //     `%cGood morning, and in case I don't see ya, good afternoon, good evening, and good night!`,
-  //     'padding:70px 320px;line-height:200px;background:url("https://78.media.tumblr.com/b555b9b1e526a2a61f29d378f5f3d1af/tumblr_mvzd3kZDCQ1rrxe89o6_250.gif") no-repeat;'
-  //   )
-  //   console.style(
-  //     '<img="background:url(http://goo.gl/EGlS7v);width:40px;height:40px">'
-  //   )
-  // }
 
   aboutMe = () =>
     `Father, husband, old-time music enthusiast/musician, amateur banjo builder, professional web dev {PHP, JS:{Angular.js, ES6+, Node, React}, MySQL, Mongo, PostgreSQL, RethinkDB}`
@@ -97,6 +81,9 @@ class IndexPage extends Component {
       case "vscode":
         window.open("https://vscode.com/", "_blank")
         break
+      case "thoughts":
+        window.open("/thoughts", "_blank")
+        break
       default:
         break
     }
@@ -109,7 +96,6 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO title="Home" />
-
         {this.state.terminalOpen ? (
           <Terminal
             color="green"
@@ -129,6 +115,7 @@ class IndexPage extends Component {
               "open-facebook": () => this.openLink("facebook"),
               "open-twitter": () => this.openLink("twitter"),
               "open-instagram": () => this.openLink("instagram"),
+              "open-thoughts": () => this.openLink("thoughts"),
               "contact-me": this.contactMe,
               "about-bengineer": this.aboutMe,
             }}
@@ -139,6 +126,7 @@ class IndexPage extends Component {
               "open-facebook": "opens my FaceBook profile",
               "open-twitter": "opens my Twitter profile",
               "open-instagram": "opens my InstaGram profile",
+              "open-thoughts": "opens my blog",
               "about-bengineer": "displays info about Benjamin Redden",
               "contact-me": "opens up an email to me",
             }}
