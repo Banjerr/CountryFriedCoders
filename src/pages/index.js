@@ -10,9 +10,6 @@ import { fab } from "@fortawesome/free-brands-svg-icons"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import AllPastRecordedThoughts from "./thoughts"
-import { Link } from "gatsby";
-
 library.add(fab, faEnvelope, faTerminal)
 
 class IndexPage extends Component {
@@ -84,6 +81,9 @@ class IndexPage extends Component {
       case "vscode":
         window.open("https://vscode.com/", "_blank")
         break
+      case "thoughts":
+        window.open("/thoughts", "_blank")
+        break
       default:
         break
     }
@@ -96,9 +96,6 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO title="Home" />
-
-        <Link to="/thoughts">AllPastRecordedThoughts</Link>
-
         {this.state.terminalOpen ? (
           <Terminal
             color="green"
@@ -118,6 +115,7 @@ class IndexPage extends Component {
               "open-facebook": () => this.openLink("facebook"),
               "open-twitter": () => this.openLink("twitter"),
               "open-instagram": () => this.openLink("instagram"),
+              "open-thoughts": () => this.openLink("thoughts"),
               "contact-me": this.contactMe,
               "about-bengineer": this.aboutMe,
             }}
@@ -128,6 +126,7 @@ class IndexPage extends Component {
               "open-facebook": "opens my FaceBook profile",
               "open-twitter": "opens my Twitter profile",
               "open-instagram": "opens my InstaGram profile",
+              "open-thoughts": "opens my blog",
               "about-bengineer": "displays info about Benjamin Redden",
               "contact-me": "opens up an email to me",
             }}
