@@ -15,8 +15,8 @@ const ThoughtPost = props => (
         [BLOCKS.HEADING_2]: (node, children) => (
           <h2 className="h2">{children}</h2>
         ),
-        [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
-          <img src={node.data.target.fields.file["en-us"].url} />
+        [BLOCKS.PARAGRAPH]: (node, children) => (
+          <p className="p">{children}</p>
         )
       }
     })}
