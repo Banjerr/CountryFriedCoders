@@ -90,7 +90,9 @@ class IndexPage extends Component {
   }
 
   toggleTerminal = () =>
-    this.setState({ terminalOpen: !this.state.terminalOpen })
+    this.setState(prevState => {
+      return { terminalOpen: !prevState.terminalOpen }
+    });
 
   render() {
     return (
