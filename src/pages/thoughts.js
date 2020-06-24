@@ -4,11 +4,11 @@ import { graphql } from 'gatsby'
 import EditorWrapper from '../components/editorWrapper'
 import SEO from '../components/seo'
 
-import "../components/thoughtStyles.css"
+import '../components/thoughtStyles.css'
 
 const createPostString = (post) => {
   let postString = ''
-  
+
   post.content.forEach(dataPieces => {
     dataPieces.content.forEach(content => {
       if (content.value.length) {
