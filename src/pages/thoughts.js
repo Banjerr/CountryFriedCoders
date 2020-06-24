@@ -1,37 +1,38 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import EditorWrapper from '../components/editorWrapper'
+import SEO from '../components/seo'
 
-const ThoughtPost = props => (
-  <article className="thought-post" id={props.post.node.id}>
-    <h3>{props.post.node.title}</h3>
-    <img src={props.post.node.image.fluid.srcWebp} />
-    {documentToReactComponents(props.post.node.body.json, {
-      renderNode: {
-        [BLOCKS.HEADING_2]: (node, children) => (
-          <h2 className="h2">{children}</h2>
-        ),
-        [BLOCKS.PARAGRAPH]: (node, children) => (
-          <p className="p">{children}</p>
-        )
+import "../components/thoughtStyles.css"
+
+const createPostString = (post) => {
+  let postString = ''
+  
+  post.content.forEach(dataPieces => {
+    dataPieces.content.forEach(content => {
+      if (content.value.length) {
+        postString += content.value + '\n'
       }
-    })}
-  </article>
-)
+    })
+  })
+
+  return postString
+}
 
 const AllPastRecordedThoughts = ({ data }) => (
-  <Layout>
+  <div>
     <SEO title="Home" />
-      <section className="thought-container">
-        {data.allContentfulThoughtPost.edges.map((post) => (
-          <ThoughtPost post={post} key={post.node.id} />
-        ))}
-      </section>
-  </Layout>
+    <section className="thought-container">
+      {data.allContentfulThoughtPost.edges.map(post => (
+        <div key={post.node.id}>
+          <h3>{post.node.title}</h3>
+          <h4>Written: {post.node.createdAt}</h4>
+          <EditorWrapper post={createPostString(post.node.body.json)} />
+        </div>
+      ))}
+    </section>
+  </div>
 )
 
 export const query = graphql`
@@ -39,6 +40,7 @@ export const query = graphql`
     allContentfulThoughtPost {
       edges {
         node {
+          createdAt
           title
           id
           image {
@@ -55,6 +57,6 @@ export const query = graphql`
       }
     }
   }
-  `
+`
 
 export default AllPastRecordedThoughts
