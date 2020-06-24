@@ -1,0 +1,12 @@
+.thought-container {
+    font-family: monospace;    
+}
+
+.thought-container h3 {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.thought-container h4 {
+    margin-top: 0;
+}

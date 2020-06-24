@@ -23,13 +23,22 @@
     "gatsby-source-contentful": "^2.1.98",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.4.2",
+    "mdhl": "0.0.5",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "terminal-in-react": "3.5.1"
+    "terminal-in-react": "3.5.1",
+    "yace": "0.0.5"
   },
   "devDependencies": {
+    "eslint": "^7.3.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-standard": "^4.0.1",
     "prettier": "^1.19.1"
   },
   "keywords": [
