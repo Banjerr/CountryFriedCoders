@@ -11,9 +11,7 @@ const createPostString = (post) => {
 
   post.content.forEach(dataPieces => {
     dataPieces.content.forEach(content => {
-      if (content && content.value && content.value.length) {
-        postString += content.value + '\n'
-      }
+      postString += content.value + '\n'
     })
   })
 
