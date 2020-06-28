@@ -6,9 +6,10 @@ import { highlight } from 'mdhl'
 import './editorStyles.css'
 import 'mdhl/mdhl.css'
 
-export default function App({ initialValue, onChange }) {
+export default function App({ initialValue, idKey, onChange }) {
   useEffect(() => {
-    const editor = new Yace('#editor', {
+    const editorIdKey = `#editor-${idKey}`
+    const editor = new Yace(editorIdKey, {
       lineNumbers: true,
       value: initialValue,
       styles: {
@@ -27,7 +28,7 @@ export default function App({ initialValue, onChange }) {
 
   return (
     <div className="wrap editorWrap editorBody">
-      <div id="editor" />
+      <div id={'editor-'+idKey} />
     </div>
   )
 }
